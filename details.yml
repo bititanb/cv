@@ -1,0 +1,51 @@
+---
+# Personal details
+name: Илья Лесиков
+phone: "8 (930) 88-66-248"
+email: bititanc@gmail.com
+# Insert URLs without http://
+# urls:
+# - wki.pe/friedrich_nietzsche
+# - twitter.com/tinynietzsche
+
+# Sections
+
+intro: "У меня нет образования (неоконченный \"колледж\" Электроники) и сомнительный стаж (8 месяцев сисадмином в офисе), но я (правда) достаточно квалифицирован. За последние пару лет работы и/или самообучения я получил неплохой технический бэкграунд, и мне есть что показать:"
+
+
+skills:
+- Aesthetics, Ethics, Тест, Nihilism
+- Psychology, Ontology, Poetry, Value theory
+- Voluntarism, Tragedy, Fact–value distinction
+- Anti-foundationalism, Philosophy of history
+
+experience:
+- years: 1879--1889
+  employer: Freiberufler
+  job: Freier Philisoph
+  city: Sils-Maria
+- years: 1869–-1879
+  employer: Universität Basel
+  job: Professor für klassische Philologie
+  city: Basel
+- years: 1867--1868
+  employer: Preußischen Artillerie
+  job: Kanonier
+  city: Naumburg
+
+education:
+- year: 1867
+  subject: Philology
+  institute: Leipzig Universität
+  city: Leipzig
+- year: 1864
+  subject: Abitur
+  institute: Schulpforta
+  city: Naumburg
+
+# Settings
+mainfont: Carlito
+fontsize: 12pt
+lang: ru
+geometry: a4paper, left=20mm, right=20mm, top=15mm, bottom=20mm
+---
