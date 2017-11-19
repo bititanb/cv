@@ -86,7 +86,7 @@ $endif$
 
 % {\setstretch{0.1} $name$}\\
 \begin{spacing}{0.3}
-{\LARGE $name$}\\
+{\LARGE Илья Лесиков}\\
 \end{spacing}
 
 % \vspace{-20pt}
@@ -117,8 +117,8 @@ $endif$
 
 \begin{flushright}
   % \begin{spacing}{0}
-    \href{mailto:$email$}{$email$}\\
-    $phone$\\
+    \href{mailto:bititanc@gmail.com}{bititanc@gmail.com}\\
+    8 (930) 88-66-248\\
   % \end{spacing}
 \end{flushright}
 
@@ -128,51 +128,58 @@ $endif$
 \vspace{30pt}
 
 У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (8 месяцев сисадмином).\\
-Но, самообучаясь, за последние пару лет я получил достаточный опыт в общей автоматизации, в CI/CD, немного — в кодинге, плюс хороший общий технический бэкграунд, и мне есть что показать:\\
+Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации и в CI/CD, немного — в кодинге, плюс получил хороший общий технический бэкграунд.\\
+Мне есть что показать:\\
 
-Демо развертывания CI/CD на локальной машине в несколько команд:\\
+Демонстрация полностью автоматизированного развертывания CI/CD и приложения в них на локальной машине с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK:\\
 \url{https://bititanb.github.io/CI-CD-pipeline}\\
-\hspace*{\fill}{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant}\\
+% \hspace*{\fill}{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant}\\
 % \tikz\node[inner sep=0pt, opacity=0.3]{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant/Packer};
 
-Демон на C++/C (вылизанные 1100 строк + 600 строк тестов):\\
-
-
-\subsection*{Areas of Interest}
-$if(skills)$
+Несколько недавних программ/скриптов:
 \begin{itemize}
-    $for(skills)$
-      \item $skills$
-    $endfor$
+  \item Демон на C++ (1100 строк + 600 строк тестов):\\
+    \url{https://github.com/bititanb/permfixd}
+  \item Небольшое приложение на Django, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}:\\
+    \url{https://github.com/bititanb/taskmngr}
 \end{itemize}
-$endif$
 
-% \vfill
 
-\vspace{25pt}
+% \subsection*{Areas of Interest}
+% $if(skills)$
+% \begin{itemize}
+%     $for(skills)$
+%       \item $skills$
+%     $endfor$
+% \end{itemize}
+% $endif$
 
-\section*{Previous Experience}
-\noindent
-$for(experience)$
-% \note{$experience.years$}\textsc{$experience.employer$}\\
-\emph{$experience.job$}\\
-$experience.city$\\[.2cm]
-$endfor$
+% % \vfill
 
-$if(education)$
-\section*{Education}
-\noindent
-$for(education)$
-% \note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
-\emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
-$endfor$
-$endif$
+% \vspace{25pt}
 
-$if(languages)$
-\section*{Languages}
-$for(languages)$
-\emph{$languages.language$} ($languages.proficiency$)\\
-$endfor$
-$endif$
+% \section*{Previous Experience}
+% \noindent
+% $for(experience)$
+% % \note{$experience.years$}\textsc{$experience.employer$}\\
+% \emph{$experience.job$}\\
+% $experience.city$\\[.2cm]
+% $endfor$
+
+% $if(education)$
+% \section*{Education}
+% \noindent
+% $for(education)$
+% % \note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
+% \emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
+% $endfor$
+% $endif$
+
+% $if(languages)$
+% \section*{Languages}
+% $for(languages)$
+% \emph{$languages.language$} ($languages.proficiency$)\\
+% $endfor$
+% $endif$
 
 \end{document}

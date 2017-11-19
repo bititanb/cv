@@ -2,8 +2,8 @@ TEX = pandoc
 src = template.tex details.yml
 FLAGS = --pdf-engine=xelatex
 
-output.pdf : $(src)
-	$(TEX) $(filter-out $<,$^ ) -o $@ --template=$< $(FLAGS)
+pdf : $(src)
+	$(TEX) $(filter-out $<,$^ ) -o output.pdf --template=$< $(FLAGS)
 
 .PHONY: clean
 clean :
