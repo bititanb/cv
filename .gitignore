@@ -366,3 +366,5 @@ TSWLatexianTemp*
 *.docx
 *.pdf
 *.html
+*.log
+*.aux

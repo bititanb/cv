@@ -1,13 +1,13 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[$fontsize$, a4paper]{article}
+\documentclass[11pt, a4paper]{article}
 
 % LAYOUT
 %--------------------------------
 % Margins
 \usepackage{geometry}
-\geometry{$geometry$}
+\geometry{a4paper, left=20mm, right=20mm, top=15mm, bottom=20mm}
 
 % Do not indent paragraphs
 \setlength\parindent{0in}
@@ -23,10 +23,8 @@
 % LANGUAGE
 %--------------------------------
 % Set the main language
-$if(lang)$
 \usepackage{polyglossia}
-\setmainlanguage{$lang$}
-$endif$
+\setmainlanguage{ru}
 
 % TYPOGRAPHY
 %--------------------------------
@@ -35,9 +33,9 @@ $endif$
 \usepackage{xltxtra}
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{LetterSpace=2, Mapping=tex-text}
-\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{Carlito}
 % Cool ampersand
-\newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}
+\newcommand{\amper}{{\fontspec[Scale=.95]{Carlito}\selectfont\itshape\&}}
 
 % MARGIN NOTES
 %--------------------------------
@@ -60,9 +58,9 @@ $endif$
 \usepackage{hyperref}
 \hypersetup
 {
-  pdfauthor={$name$},
-  pdfsubject={$name$'s CV},
-  pdftitle={$name$'s CV},
+  pdfauthor={Илья Лесиков},
+  pdfsubject={Резюме (Devops)},
+  pdftitle={Резюме (DevOps) — Илья Лесиков},
   colorlinks, breaklinks, xetex, bookmarks,
   filecolor=black,
   urlcolor=[rgb]{0.117,0.682,0.858},
@@ -75,6 +73,8 @@ $endif$
 \usepackage{setspace}
 
 \usepackage{stackengine,tikz}
+
+\setlength{\parskip}{1em}
 
 % DOCUMENT
 %--------------------------------
@@ -128,22 +128,35 @@ $endif$
 \vspace{30pt}
 
 У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (8 месяцев сисадмином).\\
-Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации и в CI/CD, немного — в кодинге, плюс получил хороший общий технический бэкграунд.\\
-Мне есть что показать:\\
+Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации и в CI/CD, немного — в кодинге, плюс получил хороший общий технический бэкграунд.
 
-Демонстрация полностью автоматизированного развертывания CI/CD и приложения в них на локальной машине с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK:\\
-\url{https://bititanb.github.io/CI-CD-pipeline}\\
-% \hspace*{\fill}{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant}\\
-% \tikz\node[inner sep=0pt, opacity=0.3]{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant/Packer};
-
-Несколько недавних программ/скриптов:
-\begin{itemize}
+Мне есть что показать:
+\begin{enumerate}
+  \item Демонстрация полностью автоматизированного развертывания CI/CD и приложения в нём на локальной машине с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK:\\
+    \url{https://bititanb.github.io/CI-CD-pipeline}
+    % \hspace*{\fill}{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant}\\
+    % \tikz\node[inner sep=0pt, opacity=0.3]{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant/Packer};
   \item Демон на C++ (1100 строк + 600 строк тестов):\\
     \url{https://github.com/bititanb/permfixd}
   \item Небольшое приложение на Django, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}:\\
     \url{https://github.com/bititanb/taskmngr}
-\end{itemize}
-
+  \item Несколько скриптов:
+    \begin{itemize}
+      \item Python:\\
+        \url{https://bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
+        \url{https://bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
+        \url{https://bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
+      \item Bash/sh:\\
+        \url{https://bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
+        \url{https://bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
+      \item JS:\\
+        \url{https://github.com/bititanb/google-snippets/blob/master/userscript.js}
+      \item Больше здесь:\\
+        \url{https://bitbucket.org/bititanb/linux-utils/src}\\
+        \url{https://bitbucket.org/bititanb/}\\
+        \url{https://github.com/bititanb?tab=repositories&q=&type=source}
+    \end{itemize}
+\end{enumerate}
 
 % \subsection*{Areas of Interest}
 % $if(skills)$
