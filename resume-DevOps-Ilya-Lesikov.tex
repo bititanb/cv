@@ -74,7 +74,20 @@
 
 \usepackage{stackengine,tikz}
 
+\usepackage{microtype}
+
 \setlength{\parskip}{1em}
+
+\renewcommand\labelitemi{\textbullet}
+\renewcommand\labelitemii{\footnotesize\raisebox{0.05ex}{\textbullet}}
+
+\newcommand{\Delimitline}{
+  \vspace{-4ex}
+  \textcolor[RGB]{120,120,120}{\rule{\linewidth}{1pt}}
+  \vspace{-4ex}
+}
+
+\usepackage{etaremune}
 
 % DOCUMENT
 %--------------------------------
@@ -85,9 +98,9 @@
 \begin{document}
 
 % {\setstretch{0.1} $name$}\\
-\begin{spacing}{0.3}
-{\LARGE Илья Лесиков}\\
-\end{spacing}
+% \begin{spacing}{0.3}
+%   {\LARGE Илья Лесиков}\\
+% \end{spacing}
 
 % \vspace{-20pt}
 
@@ -108,70 +121,93 @@
 %   \-\hspace{0.3cm}{\large 25 лет}\\
 % \end{spacing}
 
-\begin{spacing}{0.7}
+\begin{spacing}{1.5}
   % \-\hspace{0.3cm}
-  {\large DevOps}\hspace{1.55cm}{25 лет}\\
+  {\LARGE Илья\,Лесиков}\\
+  {\large DevOps}\hspace{1.3cm}{\large 25\,лет}\\
 \end{spacing}
 
 \columnbreak
 
 \begin{flushright}
-  % \begin{spacing}{0}
-    \href{mailto:bititanc@gmail.com}{bititanc@gmail.com}\\
-    8 (930) 88-66-248\\
-  % \end{spacing}
+  \begin{spacing}{1.3}
+    {\large \href{mailto:bititanc@gmail.com}{bititanc@gmail.com}}\\
+    \fontsize{1.4em}{0}\selectfont 8\,(930)\,88-66-248 \normalsize\\
+  \end{spacing}
 \end{flushright}
 
 \end{multicols}
 }
 
-\vspace{30pt}
+\vspace{-10pt}
+\textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.2pt}}
+\vspace{5pt}
 
 У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (8 месяцев сисадмином).\\
-Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации и в CI/CD, немного — в кодинге, плюс получил хороший общий технический бэкграунд.
+Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации, и в CI/CD.\\
+Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (Linux, сети и т.\,п.).
 
-Мне есть что показать:
-\begin{enumerate}
-  \item Демонстрация полностью автоматизированного развертывания CI/CD и приложения в нём на локальной машине с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK:\\
-    \url{https://bititanb.github.io/CI-CD-pipeline}
-    % \hspace*{\fill}{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant}\\
-    % \tikz\node[inner sep=0pt, opacity=0.3]{\small Kubernetes/Docker, Ansible, Jenkins, Zabbix, ELK, Vagrant/Packer};
+Как подтверждение навыков — демонстрация полностью автоматизированного развертывания CI/CD и приложения в нём на локальной машине (с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK):
+
+\url{https://bititanb.github.io/CI-CD-pipeline}
+
+\subsection*{Дополнительно:}
+\begin{itemize}
   \item Демон на C++ (1100 строк + 600 строк тестов):\\
     \url{https://github.com/bititanb/permfixd}
-  \item Небольшое приложение на Django, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD-pipeline}:\\
-    \url{https://github.com/bititanb/taskmngr}
-  \item Несколько скриптов:
+  \item Скрипты:
     \begin{itemize}
       \item Python:\\
         \url{https://bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
         \url{https://bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
         \url{https://bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
-      \item Bash/sh:\\
+      \item Bash:\\
         \url{https://bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
         \url{https://bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
       \item JavaScript:\\
         \url{https://github.com/bititanb/google-snippets/blob/master/userscript.js}
-      \item Больше здесь:\\
+      \item больше здесь:\\
         \url{https://bitbucket.org/bititanb/linux-utils/src}\\
         \url{https://bitbucket.org/bititanb/}\\
         \url{https://github.com/bititanb?tab=repositories&q=&type=source}
     \end{itemize}
-\end{enumerate}
-
-С чем работаю:
-\begin{itemize}
-  \item Linux (deb, rpm, ...) и сети — очень комфортно, Windows — послабее
-  \item sh/Bash, Python, чуть C++/C и JavaScript/вёрстка
-  \item \href{https://github.com/bititanb/ansible-taskmngr}{Ansible}, \href{https://bitbucket.org/bititanb/ivd-fabric/src}{Fabric}
-  \item \href{https://github.com/bititanb/taskmngr/blob/master/Jenkinsfile}{Jenkins}
-  \item \href{https://github.com/bititanb/ansible-taskmngr/tree/master/roles/taskmngr-kubernetes/templates}{Kubernetes}, \href{https://github.com/bititanb/taskmngr/blob/master/docker-compose.yml}{Docker Compose}
-  \item KVM, Xen, Docker
-  \item git
-  \item ПО вроде Vagrant/Packer, веб-серверов, сетевых или системных сервисов и т. п. не перечисляю — там обычно всё просто
+  \item Небольшое приложение на Django, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}:\\
+    \url{https://github.com/bititanb/taskmngr}
 \end{itemize}
 
-Некоторое ПО (Zabbix, ELK, Chef, ...) включать не стал, т. к. работал немного/давно и без гугла на некоторые вопросы по его работе не отвечу. С другой стороны, я старался поработать хотя бы с одним инструментом из каждой категории (Configuration Management, CI, мониторинг и т. д.), поэтому быстро включусь в работу на любом стеке.
+\subsection*{Основные технологии:}
+\Delimitline
+% \vspace{-4ex}
+% \begin{spacing}{0.8}
+%   \begin{flushright}
+%     \textcolor[RGB]{120,120,120}{\rule{\linewidth}{1pt}}\\
+%     \textit{\footnotesize Веб-серверы, сетевые и системные сервисы, второстепенное ПО вроде Vagrant не перечисляю — там всё просто}
+%   \end{flushright}
+% \end{spacing}
+% \vspace{-3ex}
+\begin{itemize}
+  \item Linux (deb, rpm, \dots) и сети — очень хорошо, Windows
+  \item sh/Bash, Python, чуть C++/C и JavaScript
+  \item \href{https://github.com/bititanb/ansible-taskmngr}{Ansible}, \href{https://bitbucket.org/bititanb/ivd-fabric/src}{Fabric}, Jenkins, \href{https://github.com/bititanb/ansible-taskmngr/tree/master/roles/taskmngr-kubernetes/templates}{Kubernetes}, KVM, Xen, Docker, git\par
+\end{itemize}
 
+Веб-серверы, сетевые и системные сервисы, второстепенное ПО вроде Vagrant не перечисляю — там всё просто. Ещё некоторое ПО (Zabbix, ELK, Chef, \dots) тоже, т.\,к. хоть и использовал, но недостаточно плотно.
+% Тем не менее, старался поработать хотя бы с одним инструментом из каждой категории (CM, CI, мониторинг и т.\,д.), поэтому быстро разберусь в любом стеке.
+
+\subsection*{Прочее:}
+\Delimitline
+\begin{itemize}
+  \item Разговорный английский
+  \item Военный билет
+\end{itemize}
+
+\subsection*{Опыт работы}
+\Delimitline
+\begin{etaremune}
+  \item Самообучение, отдых, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}
+  \item Системный администратор (40-50 машин, Linux/Windows 50/50)
+  \item Англоязычная техподдержка
+\end{etaremune}
 
 % \subsection*{Areas of Interest}
 % $if(skills)$

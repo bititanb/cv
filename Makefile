@@ -3,7 +3,7 @@ src = ./resume-DevOps-Ilya-Lesikov.tex
 result_extensions = pdf aux out log
 
 pdf : $(src)
-	$(TEX) $(src)
+	$(TEX) -halt-on-error $(src)
 
 .PHONY: clean
 clean :
