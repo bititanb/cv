@@ -1,80 +1,24 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-
 \documentclass[11pt, a4paper]{article}
-
-% LAYOUT
-%--------------------------------
-% Margins
 \usepackage{geometry}
 \geometry{a4paper, left=15mm, right=15mm, top=15mm, bottom=20mm}
 
-% Do not indent paragraphs
-\setlength\parindent{0in}
-
 % Enable multicolumns
 \usepackage{multicol}
-% \setlength{\columnsep}{-3.5cm}
-% \setlength{\columnsep}{}
 
-% Uncomment to suppress page numbers
-\pagenumbering{gobble}
+\usepackage{setspace}
+\usepackage{etaremune}
+\usepackage{stackengine,tikz}
 
-% % LANGUAGE
-% %--------------------------------
-% % Set the main language
-% \usepackage{polyglossia}
-% \setmainlanguage{russian}
-% %\setotherlanguage{english}
-% 
-% % TYPOGRAPHY
-% %--------------------------------
-% \usepackage{fontspec}
-% \usepackage{xunicode}
-% \usepackage{xltxtra}
-% % converts LaTeX specials (quotes, dashes etc.) to Unicode
-% \defaultfontfeatures{LetterSpace=1, Mapping=tex-text}
-% %\newfontfamily\russianfont[Script=Cyrillic]{Carlito}
-% %\newfontfamily\cyrillicfont[Script=Cyrillic]{Arial}
-% %\newfontfamily\russianfont[Script=Cyrillic]{Linux Libertine}
-% \setkeys{russian}{babelshorthands=true}
-% \setmainfont{Carlito}
-% \setsansfont{Carlito} 
-% \setmonofont{Carlito} 
-% \setromanfont{Carlito} 
-% %\setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Carlito}
-% \newfontfamily{\cyrillicfont}{Carlito} 
-% \newfontfamily{\cyrillicfontrm}{Carlito}
-% \newfontfamily{\cyrillicfonttt}{Carlito}
-% \newfontfamily{\cyrillicfontsf}{Carlito}
-% %\setromanfont{Courier New}
-% %\setsansfont{Courier New}
-% %\setmonofont{Courier New}
-% %\newfontfamily\cyrillicfont{Courier New}
-% % Cool ampersand
-% %\newcommand{\amper}{{\fontspec[Scale=.95]{Carlito}\selectfont\itshape\&}}
-
-
+% LANG, FONTS
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian,english]{babel}
 
-% \usepackage[babel=true, activate={true,nocompatibility}, tracking=true, kerning=true, spacing=true]{microtype}
 \usepackage[babel=true,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 % good fonts: gentium, droid
 \usepackage{gentium}
 
-
-% MARGIN NOTES
-%--------------------------------
-% \usepackage{marginnote}
-% \newcommand{\note}[1]{\marginnote{\scriptsize #1}}
-% \renewcommand*{\raggedleftmarginnote}{}
-% \setlength{\marginparsep}{7pt}
-% \reversemarginpar
-
 % HEADINGS
-%--------------------------------
 % \usepackage{sectsty}
 % \usepackage[normalem]{ulem}
 % \sectionfont{\rmfamily\mdseries}
@@ -82,7 +26,6 @@
 % \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
 
 % PDF SETUP
-%--------------------------------
 \usepackage{hyperref}
 \hypersetup
 {
@@ -97,61 +40,32 @@
   citecolor=[rgb]{0.117,0.682,0.858}
 }
 
-% CUSTOM CONFIG
-\usepackage{setspace}
-
-\usepackage{stackengine,tikz}
-
-%\usepackage{microtype}
-
+% FORMATTING
 \setlength{\parskip}{1em}
+% Do not indent paragraphs
+\setlength\parindent{0in}
+% suppress page numbers
+\pagenumbering{gobble}
 
+% bulletpoints
 \renewcommand\labelitemi{\textbullet}
 \renewcommand\labelitemii{\footnotesize\raisebox{0.05ex}{\textbullet}}
 
+% CUSTOM COMMANDS
 \newcommand{\Delimitline}{
   \vspace{-4ex}
   \textcolor[RGB]{120,120,120}{\rule{\linewidth}{1pt}}
   \vspace{-4ex}
 }
 
-\usepackage{etaremune}
-
 \newcommand\rurl[1]{%
   \href{http://#1}{\nolinkurl{#1}}%
 }
 
-% DOCUMENT
-%--------------------------------
-% \renewcommand{\baselinestretch}{.1}
-% \setlength{\parindent}{4em}
-% \setlength{\parskip}{4em}
-% \onehalfspacing
 \begin{document}
-
-% {\setstretch{0.1} $name$}\\
-% \begin{spacing}{0.3}
-%   {\LARGE Илья Лесиков}\\
-% \end{spacing}
-
-% \vspace{-20pt}
 
 {\setlength\multicolsep{0pt}%
 \begin{multicols}{2}
-
-% $for(address)$
-% $address$\\
-% $endfor$
-
-% \vspace{-10pt}
-
-% $for(urls)$
-% \href{http://$urls$}{$urls$}\\
-% $endfor$
-
-% \begin{spacing}{1}
-%   \-\hspace{0.3cm}{\large 25 лет}\\
-% \end{spacing}
 
 \begin{spacing}{1.5}
   {\LARGE Илья\,Лесиков}\\
@@ -208,14 +122,6 @@
 
 \subsection*{Основные технологии:}
 \Delimitline
-% \vspace{-4ex}
-% \begin{spacing}{0.8}
-%   \begin{flushright}
-%     \textcolor[RGB]{120,120,120}{\rule{\linewidth}{1pt}}\\
-%     \textit{\footnotesize Веб-серверы, сетевые и системные сервисы, второстепенное ПО вроде Vagrant не перечисляю — там всё просто}
-%   \end{flushright}
-% \end{spacing}
-% \vspace{-3ex}
 \begin{itemize}
   \item Linux (deb, rpm, \dots) и сети — очень хорошо, Windows
   \item sh/Bash, Python, чуть C++/C и JavaScript
@@ -239,42 +145,5 @@
   \item Системный администратор (40-50 машин, Linux/Windows 50/50)
   \item Англоязычная техподдержка
 \end{etaremune}
-
-% \subsection*{Areas of Interest}
-% $if(skills)$
-% \begin{itemize}
-%     $for(skills)$
-%       \item $skills$
-%     $endfor$
-% \end{itemize}
-% $endif$
-
-% % \vfill
-
-% \vspace{25pt}
-
-% \section*{Previous Experience}
-% \noindent
-% $for(experience)$
-% % \note{$experience.years$}\textsc{$experience.employer$}\\
-% \emph{$experience.job$}\\
-% $experience.city$\\[.2cm]
-% $endfor$
-
-% $if(education)$
-% \section*{Education}
-% \noindent
-% $for(education)$
-% % \note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
-% \emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
-% $endfor$
-% $endif$
-
-% $if(languages)$
-% \section*{Languages}
-% $for(languages)$
-% \emph{$languages.language$} ($languages.proficiency$)\\
-% $endfor$
-% $endif$
 
 \end{document}
