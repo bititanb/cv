@@ -1,6 +1,6 @@
-TEX = xelatex
+TEX = pdflatex
 src = ./resume-DevOps-Ilya-Lesikov.tex
-result_extensions = pdf aux out log
+result_extensions = pdf aux out log lyx
 
 pdf : $(src)
 	$(TEX) -halt-on-error $(src)

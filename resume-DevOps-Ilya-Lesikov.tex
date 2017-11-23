@@ -1,13 +1,13 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[10pt, a4paper]{article}
+\documentclass[11pt, a4paper]{article}
 
 % LAYOUT
 %--------------------------------
 % Margins
 \usepackage{geometry}
-\geometry{a4paper, left=20mm, right=20mm, top=15mm, bottom=20mm}
+\geometry{a4paper, left=15mm, right=15mm, top=15mm, bottom=20mm}
 
 % Do not indent paragraphs
 \setlength\parindent{0in}
@@ -20,12 +20,50 @@
 % Uncomment to suppress page numbers
 \pagenumbering{gobble}
 
-% LANGUAGE
-%--------------------------------
-% Set the main language
-\usepackage{polyglossia}
-\setmainlanguage{russian}
-%\setotherlanguage{english}
+% % LANGUAGE
+% %--------------------------------
+% % Set the main language
+% \usepackage{polyglossia}
+% \setmainlanguage{russian}
+% %\setotherlanguage{english}
+% 
+% % TYPOGRAPHY
+% %--------------------------------
+% \usepackage{fontspec}
+% \usepackage{xunicode}
+% \usepackage{xltxtra}
+% % converts LaTeX specials (quotes, dashes etc.) to Unicode
+% \defaultfontfeatures{LetterSpace=1, Mapping=tex-text}
+% %\newfontfamily\russianfont[Script=Cyrillic]{Carlito}
+% %\newfontfamily\cyrillicfont[Script=Cyrillic]{Arial}
+% %\newfontfamily\russianfont[Script=Cyrillic]{Linux Libertine}
+% \setkeys{russian}{babelshorthands=true}
+% \setmainfont{Carlito}
+% \setsansfont{Carlito} 
+% \setmonofont{Carlito} 
+% \setromanfont{Carlito} 
+% %\setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Carlito}
+% \newfontfamily{\cyrillicfont}{Carlito} 
+% \newfontfamily{\cyrillicfontrm}{Carlito}
+% \newfontfamily{\cyrillicfonttt}{Carlito}
+% \newfontfamily{\cyrillicfontsf}{Carlito}
+% %\setromanfont{Courier New}
+% %\setsansfont{Courier New}
+% %\setmonofont{Courier New}
+% %\newfontfamily\cyrillicfont{Courier New}
+% % Cool ampersand
+% %\newcommand{\amper}{{\fontspec[Scale=.95]{Carlito}\selectfont\itshape\&}}
+
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+
+% \usepackage[babel=true, activate={true,nocompatibility}, tracking=true, kerning=true, spacing=true]{microtype}
+\usepackage[babel=true,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+% good fonts: gentium, droid
+\usepackage{gentium}
+
 
 % MARGIN NOTES
 %--------------------------------
@@ -64,7 +102,7 @@
 
 \usepackage{stackengine,tikz}
 
-\usepackage{microtype}
+%\usepackage{microtype}
 
 \setlength{\parskip}{1em}
 
@@ -79,32 +117,9 @@
 
 \usepackage{etaremune}
 
-% TYPOGRAPHY
-%--------------------------------
-\usepackage{fontspec}
-\usepackage{xunicode}
-\usepackage{xltxtra}
-% converts LaTeX specials (quotes, dashes etc.) to Unicode
-\defaultfontfeatures{LetterSpace=1, Mapping=tex-text}
-%\newfontfamily\russianfont[Script=Cyrillic]{Carlito}
-%\newfontfamily\cyrillicfont[Script=Cyrillic]{Arial}
-%\newfontfamily\russianfont[Script=Cyrillic]{Linux Libertine}
-\setkeys{russian}{babelshorthands=true}
-\setmainfont{Carlito}
-\setsansfont{Carlito} 
-\setmonofont{Carlito} 
-\setromanfont{Carlito} 
-%\setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Carlito}
-\newfontfamily{\cyrillicfont}{Carlito} 
-\newfontfamily{\cyrillicfontrm}{Carlito}
-\newfontfamily{\cyrillicfonttt}{Carlito}
-\newfontfamily{\cyrillicfontsf}{Carlito}
-%\setromanfont{Courier New}
-%\setsansfont{Courier New}
-%\setmonofont{Courier New}
-%\newfontfamily\cyrillicfont{Courier New}
-% Cool ampersand
-%\newcommand{\amper}{{\fontspec[Scale=.95]{Carlito}\selectfont\itshape\&}}
+\newcommand\rurl[1]{%
+  \href{http://#1}{\nolinkurl{#1}}%
+}
 
 % DOCUMENT
 %--------------------------------
@@ -165,30 +180,30 @@
 
 Как подтверждение навыков — демонстрация полностью автоматизированного развертывания CI/CD и приложения в нём на локальной машине (с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK):
 
-\url{https://bititanb.github.io/CI-CD-pipeline}
+\rurl{bititanb.github.io/CI-CD-pipeline}
 
 \subsection*{Дополнительно:}
 \begin{itemize}
   \item Демон на C++ (1100 строк + 600 строк тестов):\\
-    \url{https://github.com/bititanb/permfixd}
+    \rurl{github.com/bititanb/permfixd}
   \item Скрипты:
     \begin{itemize}
       \item Python:\\
-        \url{https://bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
-        \url{https://bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
-        \url{https://bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
+        \rurl{bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
+        \rurl{bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
+        \rurl{bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
       \item Bash:\\
-        \url{https://bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
-        \url{https://bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
+        \rurl{bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
+        \rurl{bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
       \item JavaScript:\\
-        \url{https://github.com/bititanb/google-snippets/blob/master/userscript.js}
+        \rurl{github.com/bititanb/google-snippets/blob/master/userscript.js}
       \item больше здесь:\\
-        \url{https://bitbucket.org/bititanb/linux-utils/src}\\
-        \url{https://bitbucket.org/bititanb/}\\
-        \url{https://github.com/bititanb?tab=repositories&q=&type=source}
+        \rurl{bitbucket.org/bititanb/linux-utils/src}\\
+        \rurl{bitbucket.org/bititanb/}\\
+        \rurl{github.com/bititanb?tab=repositories&q=&type=source}
     \end{itemize}
   \item Небольшое приложение на Django, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}:\\
-    \url{https://github.com/bititanb/taskmngr}
+    \rurl{github.com/bititanb/taskmngr}
 \end{itemize}
 
 \subsection*{Основные технологии:}
