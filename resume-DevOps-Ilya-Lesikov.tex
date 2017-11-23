@@ -24,18 +24,8 @@
 %--------------------------------
 % Set the main language
 \usepackage{polyglossia}
-\setmainlanguage{ru}
-
-% TYPOGRAPHY
-%--------------------------------
-\usepackage{fontspec}
-\usepackage{xunicode}
-\usepackage{xltxtra}
-% converts LaTeX specials (quotes, dashes etc.) to Unicode
-\defaultfontfeatures{LetterSpace=2, Mapping=tex-text}
-\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{Carlito}
-% Cool ampersand
-\newcommand{\amper}{{\fontspec[Scale=.95]{Carlito}\selectfont\itshape\&}}
+\setmainlanguage{russian}
+%\setotherlanguage{english}
 
 % MARGIN NOTES
 %--------------------------------
@@ -47,11 +37,11 @@
 
 % HEADINGS
 %--------------------------------
-\usepackage{sectsty}
-\usepackage[normalem]{ulem}
-\sectionfont{\rmfamily\mdseries}
-\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
-\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+% \usepackage{sectsty}
+% \usepackage[normalem]{ulem}
+% \sectionfont{\rmfamily\mdseries}
+% \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+% \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
 
 % PDF SETUP
 %--------------------------------
@@ -61,7 +51,7 @@
   pdfauthor={Илья Лесиков},
   pdfsubject={Резюме (Devops)},
   pdftitle={Резюме (DevOps) — Илья Лесиков},
-  colorlinks, breaklinks, xetex, bookmarks,
+  colorlinks, breaklinks,
   filecolor=black,
   urlcolor=[rgb]{0.117,0.682,0.858},
   linkcolor=[rgb]{0.117,0.682,0.858},
@@ -88,6 +78,33 @@
 }
 
 \usepackage{etaremune}
+
+% TYPOGRAPHY
+%--------------------------------
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+% converts LaTeX specials (quotes, dashes etc.) to Unicode
+\defaultfontfeatures{LetterSpace=1, Mapping=tex-text}
+%\newfontfamily\russianfont[Script=Cyrillic]{Carlito}
+%\newfontfamily\cyrillicfont[Script=Cyrillic]{Arial}
+%\newfontfamily\russianfont[Script=Cyrillic]{Linux Libertine}
+\setkeys{russian}{babelshorthands=true}
+\setmainfont{Carlito}
+\setsansfont{Carlito} 
+\setmonofont{Carlito} 
+\setromanfont{Carlito} 
+%\setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Carlito}
+\newfontfamily{\cyrillicfont}{Carlito} 
+\newfontfamily{\cyrillicfontrm}{Carlito}
+\newfontfamily{\cyrillicfonttt}{Carlito}
+\newfontfamily{\cyrillicfontsf}{Carlito}
+%\setromanfont{Courier New}
+%\setsansfont{Courier New}
+%\setmonofont{Courier New}
+%\newfontfamily\cyrillicfont{Courier New}
+% Cool ampersand
+%\newcommand{\amper}{{\fontspec[Scale=.95]{Carlito}\selectfont\itshape\&}}
 
 % DOCUMENT
 %--------------------------------
@@ -122,9 +139,8 @@
 % \end{spacing}
 
 \begin{spacing}{1.5}
-  % \-\hspace{0.3cm}
   {\LARGE Илья\,Лесиков}\\
-  {\large DevOps}\hspace{1.3cm}{\large 25\,лет}\\
+  {\large DevOps}\hspace{1.3cm}{\large 25\,лет}
 \end{spacing}
 
 \columnbreak
@@ -143,7 +159,7 @@
 \textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.2pt}}
 \vspace{5pt}
 
-У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (8 месяцев сисадмином).\\
+У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (10 месяцев сисадмином).\\
 Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации, и в CI/CD.\\
 Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (Linux, сети и т.\,п.).
 
@@ -204,7 +220,7 @@
 \subsection*{Опыт работы}
 \Delimitline
 \begin{etaremune}
-  \item Самообучение, отдых, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}
+  \item Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}
   \item Системный администратор (40-50 машин, Linux/Windows 50/50)
   \item Англоязычная техподдержка
 \end{etaremune}
