@@ -66,6 +66,16 @@
   \foreignlanguage{english}{#1}%
 }
 
+% HACK to decrease boldness globally
+\renewcommand{\textbf}[1]{%
+    \pdfliteral direct {2 Tr 0.2 w} %the second factor is the boldness 
+     #1%
+    \pdfliteral direct {0 Tr 0 w}%
+}
+\let\bf\textbf
+
+\let\it\textit
+
 \begin{document}
 
 % default font family
@@ -101,9 +111,15 @@
 Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (\Eng{Linux}, сети и т.\,п.).
 \end{comment}
 
-Как подтверждение навыков — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения в нём на локальной машине (с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):
+Как подтверждение навыков — демонстрация \it{полностью автоматизированного} развертывания \Eng{CI/CD} и приложения в нём на локальной машине 
+% HACK: shrink big spaces between words caused by boldness hack
+{\fontdimen2\font=1.5pt
+(с
+\Eng{\textbf{Vagrant}, \bf{Ansible}, \bf{Jenkins}, \bf{Kubernetes}, \bf{Zabbix}, \bf{ELK}}):\par
+}
 
 \rurl{bititanb.github.io/CI-CD-pipeline}
+
 
 \subsubsection*{Дополнительно:}
 \begin{itemize}
