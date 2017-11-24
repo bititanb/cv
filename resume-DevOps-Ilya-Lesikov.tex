@@ -2,21 +2,39 @@
 \usepackage{geometry}
 \geometry{a4paper, left=15mm, right=15mm, top=15mm, bottom=20mm}
 
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Basic,Ligatures={TeX}, Numbers=Lining}
+\setmainfont{Georgia}
+\setsansfont{Carlito}
+\setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
+\usepackage[english,russian]{babel}
+
+% \usepackage{fontspec}
+% \usepackage{polyglossia}
+% \setmainlanguage{russian}
+% \setotherlanguage{english}
+% 
+% \defaultfontfeatures{Mapping=tex-text, Numbers=Lining, Ligatures=Common}
+% %\setromanfont{}
+% \setsansfont[]{Carlito}
+% \setmainfont[]{Georgia}
+% \setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
+% %\setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Carlito}
+% %\newfontfamily{\cyrillicfontrm}{Georgia}
+% %\newfontfamily{\cyrillicfonttt}[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
+% %\newfontfamily{\cyrillicfontsf}[]{Carlito}
+% \newfontfamily{\cyrillicfont}[]{Georgia}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,factor=1200,stretch=20,shrink=20]{microtype}
+
 % Enable multicolumns
 \usepackage{multicol}
+% multiline comments
+\usepackage{verbatim}
 
 \usepackage{setspace}
 \usepackage{etaremune}
-\usepackage{stackengine,tikz}
-
-% LANG, FONTS
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[russian,english]{babel}
-
-\usepackage[babel=true,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
-% good fonts: gentium, droid
-\usepackage{gentium}
+%\usepackage{stackengine,tikz}
 
 % HEADINGS
 % \usepackage{sectsty}
@@ -27,8 +45,7 @@
 
 % PDF SETUP
 \usepackage{hyperref}
-\hypersetup
-{
+\hypersetup {
   pdfauthor={Илья Лесиков},
   pdfsubject={Резюме (Devops)},
   pdftitle={Резюме (DevOps) — Илья Лесиков},
@@ -40,7 +57,7 @@
   citecolor=[rgb]{0.117,0.682,0.858}
 }
 
-% FORMATTING
+%%FORMATTING
 \setlength{\parskip}{1em}
 % Do not indent paragraphs
 \setlength\parindent{0in}
@@ -62,21 +79,28 @@
   \href{http://#1}{\nolinkurl{#1}}%
 }
 
+\newcommand\Eng[1]{%
+  \foreignlanguage{english}{#1}%
+}
+
 \begin{document}
+
+% default font family
+\sffamily
 
 {\setlength\multicolsep{0pt}%
 \begin{multicols}{2}
 
 \begin{spacing}{1.5}
   {\LARGE Илья\,Лесиков}\\
-  {\large DevOps}\hspace{1.3cm}{\large 25\,лет}
+  {\Large\Eng{DevOps}}\hspace{1.3cm}{\large 25\,лет}
 \end{spacing}
 
 \columnbreak
 
 \begin{flushright}
   \begin{spacing}{1.3}
-    {\large \href{mailto:bititanc@gmail.com}{bititanc@gmail.com}}\\
+    {\large\href{mailto:bititanc@gmail.com}{\Eng{bititanc@gmail.com}}}\\
     \fontsize{1.4em}{0}\selectfont 8\,(930)\,88-66-248 \normalsize\\
   \end{spacing}
 \end{flushright}
@@ -88,47 +112,61 @@
 \textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.2pt}}
 \vspace{5pt}
 
+\begin{comment}
 У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (10 месяцев сисадмином).\\
-Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации, и в CI/CD.\\
-Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (Linux, сети и т.\,п.).
+Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации, и в \Eng{CI/CD}.\\
+Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (\Eng{Linux}, сети и т.\,п.).
+\end{comment}
 
-Как подтверждение навыков — демонстрация полностью автоматизированного развертывания CI/CD и приложения в нём на локальной машине (с Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK):
+\begin{comment}
+\textrm{Тестирование тест тест}\\
+\textsf{Тестирование тест тест}\\
+\texttt{Тестирование тест тест}\\
+\Eng{\textrm{Testing test test}}\\
+\Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}\\
+\Eng{Testing test test}\\
+\Eng{\texttt{Testing test test}}\\
+\end{comment}
+
+Как подтверждение навыков — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения в нём на локальной машине (с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):
 
 \rurl{bititanb.github.io/CI-CD-pipeline}
 
 \subsection*{Дополнительно:}
 \begin{itemize}
-  \item Демон на C++ (1100 строк + 600 строк тестов):\\
+  \item Демон на \Eng{C++} (1100 строк + 600 строк тестов):\\
     \rurl{github.com/bititanb/permfixd}
   \item Скрипты:
     \begin{itemize}
-      \item Python:\\
+      \item \Eng{Python}:\\
         \rurl{bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
         \rurl{bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
         \rurl{bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
-      \item Bash:\\
+      \item \Eng{Bash}:\\
         \rurl{bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
         \rurl{bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
-      \item JavaScript:\\
+      \item \Eng{JavaScript}:\\
         \rurl{github.com/bititanb/google-snippets/blob/master/userscript.js}
       \item больше здесь:\\
         \rurl{bitbucket.org/bititanb/linux-utils/src}\\
         \rurl{bitbucket.org/bititanb/}\\
         \rurl{github.com/bititanb?tab=repositories&q=&type=source}
     \end{itemize}
-  \item Небольшое приложение на Django, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}:\\
+  \item Небольшое приложение на \Eng{Django}, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}:\\
     \rurl{github.com/bititanb/taskmngr}
 \end{itemize}
 
 \subsection*{Основные технологии:}
 \Delimitline
 \begin{itemize}
-  \item Linux (deb, rpm, \dots) и сети — очень хорошо, Windows
-  \item sh/Bash, Python, чуть C++/C и JavaScript
+  \item \Eng{Linux (deb, rpm, \dots)} и сети — очень хорошо, \Eng{Windows}
+  \item \Eng{sh/Bash, Python}, чуть \Eng{C++/C} и \Eng{JavaScript}
+  \begin{otherlanguage*}{english}
   \item \href{https://github.com/bititanb/ansible-taskmngr}{Ansible}, \href{https://bitbucket.org/bititanb/ivd-fabric/src}{Fabric}, Jenkins, \href{https://github.com/bititanb/ansible-taskmngr/tree/master/roles/taskmngr-kubernetes/templates}{Kubernetes}, KVM, Xen, Docker, git\par
+  \end{otherlanguage*}
 \end{itemize}
 
-Веб-серверы, сетевые и системные сервисы, второстепенное ПО вроде Vagrant не перечисляю — там всё просто. Ещё некоторое ПО (Zabbix, ELK, Chef, \dots) тоже, т.\,к. хоть и использовал, но недостаточно плотно.
+Веб-серверы, сетевые и системные сервисы, второстепенное ПО вроде \Eng{Vagrant} не перечисляю — там всё просто. Ещё некоторое ПО \Eng{(Zabbix, ELK, Chef, \dots)} тоже, т.\,к. хоть и использовал, но недостаточно плотно.
 % Тем не менее, старался поработать хотя бы с одним инструментом из каждой категории (CM, CI, мониторинг и т.\,д.), поэтому быстро разберусь в любом стеке.
 
 \subsection*{Прочее:}
@@ -141,8 +179,8 @@
 \subsection*{Опыт работы}
 \Delimitline
 \begin{etaremune}
-  \item Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{CI-CD демо}
-  \item Системный администратор (40-50 машин, Linux/Windows 50/50)
+  \item Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
+  \item Системный администратор (40-50 машин, \Eng{Linux/Windows} 50/50)
   \item Англоязычная техподдержка
 \end{etaremune}
 
