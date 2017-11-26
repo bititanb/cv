@@ -1,11 +1,11 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{geometry}
-\geometry{a4paper, left=25mm, right=25mm, top=10mm, bottom=10mm}
+\geometry{a4paper, left=25mm, right=25mm, top=8mm, bottom=10mm}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Renderer=Basic,Ligatures={TeX}, Numbers=Lining}
 \setmainfont{Georgia}
-\setsansfont{Carlito}
+\setsansfont[FakeStretch=1.05]{Carlito}
 \setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
 %\newfontfamily{\spacedmonofamily}[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
 \usepackage[english,russian]{babel}
@@ -83,7 +83,7 @@
 
 %\titlespacing*{\section}
 %{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-\titlespacing*{\subsection}{1.3em}{1.3ex}{0ex}
+\titlespacing*{\subsection}{1.3em}{2ex}{0ex}
 %\titleformat{\subsection}[display]
 %  {\huge\headingfont}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
 \titleformat{\subsection}{\rmfamily\mdseries\scshape\large}{\thesubsection}{0.7em}{}
@@ -117,7 +117,8 @@
 
 % don't overflow in case line is too long, break it before and justify resulted short
 % line, even if there will be long spaces between words
-\raggedright
+%\fossy
+%\sloppy
 
 % maths
 \newlength{\DelimitlineLength}
@@ -130,6 +131,7 @@
 \begin{multicols}{2}
 
 \begin{spacing}{1.5}
+  \rmfamily
   {\LARGE Илья\,Лесиков}\\
   {\Large\Eng{DevOps}}\hspace{1cm}{\large 25\,лет}
 \end{spacing}
@@ -137,7 +139,8 @@
 \columnbreak
 
 \begin{flushright}
-  \begin{spacing}{1.3}
+  \begin{spacing}{1.5}
+    \rmfamily
     {\large\href{mailto:bititanc@gmail.com}{\Eng{bititanc@gmail.com}}}\\
     {\fontsize{1.4em}{0}\selectfont 8\,(930)\,88-66-248} \normalsize\\
   \end{spacing}
@@ -150,7 +153,7 @@
 %\textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.2pt}}
 %\vspace{5pt}
 
-\vspace{3ex}
+\vspace{2ex}
 
 \begin{comment}
 У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (10 месяцев сисадмином).\\
@@ -165,9 +168,11 @@
 \subsection*{GitHub}
 \Delimitline
 
-Главное — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения~в~нём на~локальной~машине
-(с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):\\
-\vspace{0.4ex}
+{
+\raggedright
+\forceindent Главное — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения~в~нём на~локальной~машине
+(с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):
+\vspace{0.4ex}\\
   {
   %\spacedmonofamily 
   %\ttfamily
@@ -175,35 +180,36 @@
   %\href{http://bititanb.github.io/CI-CD-pipeline}{bititanb.github.io/CI-CD-pipeline}
   \rurl{bititanb.github.io/CI-CD-pipeline}
   }
+}
   
 \vspace{2.5ex}
 
-Небольшой демон на \Eng{C++} (1100 строк + 600 строк тестов):\\
-\vspace{0.4ex}
+Небольшой демон на \Eng{C++} (1100 строк + 600 строк тестов):
+\vspace{0.4ex}\\
   \rurl{github.com/bititanb/permfixd}
   
 Скрипты:
 \begin{itemize}
-  \item \Eng{Python}:\\
-    \vspace{0.2ex}
+  \item \Eng{Python}:
+    \vspace{0.2em}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
-  \item \Eng{Bash}:\\
-    \vspace{0.2ex}
+  \item \Eng{Bash}:
+    \vspace{0.2ex}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
     \rurl{bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
-  \item \Eng{JavaScript}:\\
-    \vspace{0.2ex}
+  \item \Eng{JavaScript}:
+    \vspace{0.2ex}\\
     \rurl{github.com/bititanb/google-snippets/blob/master/userscript.js}
-  \item больше здесь:\\
-    \vspace{0.2ex}
+  \item больше здесь:
+    \vspace{0.2ex}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src}\\
     \rurl{bitbucket.org/bititanb/}\\
     \rurl{github.com/bititanb?tab=repositories&q=&type=source}
 \end{itemize}
-Небольшое приложение на \Eng{Django}, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}:\\
-\vspace{0.4ex}
+Небольшое приложение на \Eng{Django}, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}:
+\vspace{0.4ex}\\
   \rurl{github.com/bititanb/taskmngr}
 
 \subsection*{{Основные технологии}}
@@ -218,7 +224,7 @@
 \end{itemize}
 
 \forceindent Второстепенное~ПО вроде~\Eng{Vagrant}, сетевые и системные сервисы не~перечисляю.
-Ещё~некоторое \Eng{(Zabbix,~ELK,~Chef,~PowerShell,~\dots)} тоже не~включил, т.\,к. хоть~и~использовал, но~недолго.
+Ещё некоторое \Eng{(Zabbix,~ELK,~Chef,~PowerShell,~\dots)} тоже не~включил, т.\,к. хоть и использовал, но недолго.
 % Тем не менее, старался поработать хотя бы с одним инструментом из каждой категории (CM, CI, мониторинг и т.\,д.), поэтому быстро разберусь в любом стеке.
 
 \subsection*{{Опыт}}
@@ -247,7 +253,7 @@ topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
   %\hskip 1.5em minus 0.5em \-
   \newline
   \-\hspace{1em}
-    40-50 машин, \Eng{Linux/Windows} 50/50
+    \it{40-50 машин, \Eng{Linux/Windows} 50/50}
   
 \item
     Англоязычная техподдержка клиентов
@@ -260,7 +266,7 @@ topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
   %\hskip 1.5em minus 0.5em \-
   \newline
   \-\hspace{1em}
-    звонки, чат, заявки
+    \it{звонки, чат, заявки}
 \end{etaremune}
 \end{spacing}
 
