@@ -1,18 +1,19 @@
 TEX_EXEC = lualatex
 BASENAME = resume-DevOps-Ilya-Lesikov
-TRASH_EXTS = aux out log lyx
-
-pdf:
-	$(TEX_EXEC) -halt-on-error $(BASENAME).tex
+TRASH_EXTS = aux out log lyx dvi
 
 # for hh.ru
 png: pdf
 	pdftoppm $(BASENAME).pdf -r 300 $(BASENAME) -png
 
+pdf:
+	$(TEX_EXEC) -halt-on-error $(BASENAME).tex
+
 clean:
 	for ext in $(TRASH_EXTS); do rm -f ./resume-DevOps-Ilya-Lesikov.$${ext}; done
+	rm -f *.log
 
-cleanall:
-	for ext in $(TRASH_EXTS) pdf png; do rm -f ./resume-DevOps-Ilya-Lesikov.$${ext}; done
+cleanall: clean
+	for ext in pdf png; do rm -f ./resume-DevOps-Ilya-Lesikov*.$${ext}; done
 
 .PHONY: cleanall clean pdf png
