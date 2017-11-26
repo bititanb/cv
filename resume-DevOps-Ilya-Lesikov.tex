@@ -1,16 +1,21 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{geometry}
-\geometry{a4paper, left=20mm, right=20mm, top=10mm, bottom=10mm}
+\geometry{a4paper, left=25mm, right=25mm, top=10mm, bottom=10mm}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Renderer=Basic,Ligatures={TeX}, Numbers=Lining}
 \setmainfont{Georgia}
 \setsansfont{Carlito}
 \setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
+%\newfontfamily{\spacedmonofamily}[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
 \usepackage[english,russian]{babel}
 
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1200,stretch=20,shrink=20]{microtype}
 
+% disable hyphenation
+\usepackage[none]{hyphenat}
+% arithmetic operations in latex
+\usepackage{calc}
 % section titles configuration
 \usepackage{titlesec}
 % colorize text (advanced)
@@ -38,19 +43,19 @@
   pdftitle={Резюме (DevOps) — Илья Лесиков},
   colorlinks, breaklinks,
   filecolor=black,
-  urlcolor=[RGB]{41,41,212},
-  linkcolor=[rgb]{0.117,0.682,0.858},
-  linkcolor=[rgb]{0.117,0.682,0.858},
-  citecolor=[rgb]{0.117,0.682,0.858}
+  urlcolor=[RGB]{0,0,208},
+  linkcolor=[RGB]{0,0,208},
+  citecolor=[RGB]{0,0,208},
 }
 
 % CUSTOM COMMANDS
 \newcommand{\Delimitline}{
   \vspace{-2ex}
-  {\rule{\linewidth}{0.13ex}}
-}
+  %{\rule{\linewidth}{0.13ex}}
+  \noindent\makebox[\linewidth]{\rule{\DelimitlineLength}{0.12ex}} }
 
 \newcommand\rurl[1]{%
+  \-\hspace{0.5em}
   \href{http://#1}{\nolinkurl{#1}}%
 }
 
@@ -68,6 +73,8 @@
 
 \let\it\textit
 
+\newcommand{\forceindent}{\leavevmode{\parindent=1.5em\indent}}
+
 %% FORMATTING
 
 % \sectionfont{\rmfamily\mdseries}
@@ -76,15 +83,14 @@
 
 %\titlespacing*{\section}
 %{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-\titlespacing*{\subsection}{0.7em}{1.3ex}{0ex}
+\titlespacing*{\subsection}{1.3em}{1.3ex}{0ex}
 %\titleformat{\subsection}[display]
 %  {\huge\headingfont}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
 \titleformat{\subsection}{\rmfamily\mdseries\scshape\large}{\thesubsection}{0.7em}{}
 
-
-\setlength{\parskip}{0.8ex}
+\setlength{\parskip}{1ex}
 % Do not indent paragraphs
-\setlength\parindent{0in}
+\setlength{\parindent}{0ex}
 % suppress page numbers
 \pagenumbering{gobble}
 
@@ -94,17 +100,28 @@
 \setlength{\tabcolsep}{0em}
 
 % itemize lists
-\setlist[itemize]{itemsep=0ex, topsep=0ex}
+\setlist[itemize]{itemsep=0ex, topsep=0ex, leftmargin=2em}
 
 % bulletpoints
 \renewcommand\labelitemi{\textbullet}
-\renewcommand\labelitemii{\footnotesize\raisebox{0.05ex}{\textbullet}}
+%\renewcommand\labelitemii{\footnotesize\raisebox{0.05ex}{\textbullet}}
 
 %% DOCUMENT
 \begin{document}
 
 % default font family
 \sffamily
+
+% spacing between words
+\fontdimen2\font=0.2em
+
+% don't overflow in case line is too long, break it before and justify resulted short
+% line, even if there will be long spaces between words
+\raggedright
+
+% maths
+\newlength{\DelimitlineLength}
+\setlength{\DelimitlineLength}{\textwidth+1em}
 
 %% COLORS
 \pagecolor[RGB]{245,245,245}
@@ -114,7 +131,7 @@
 
 \begin{spacing}{1.5}
   {\LARGE Илья\,Лесиков}\\
-  {\Large\Eng{DevOps}}\hspace{1.3cm}{\large 25\,лет}
+  {\Large\Eng{DevOps}}\hspace{1cm}{\large 25\,лет}
 \end{spacing}
 
 \columnbreak
@@ -143,45 +160,55 @@
 
 %\vspace{-4ex}
 
-\subsection*{Главное}
-\Delimitline
-Демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения в нём на локальной машине 
-%% HACK: shrink big spaces between words caused by boldness hack
-%{\fontdimen2\font=1.5pt
-(с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):\\
-%\par
-%}
-\rurl{bititanb.github.io/CI-CD-pipeline}
-
 %\vspace{-4ex}
 
-\subsection*{{GitHub}}
+\subsection*{GitHub}
 \Delimitline
 
+Главное — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения~в~нём на~локальной~машине
+(с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):\\
+\vspace{0.4ex}
+  {
+  %\spacedmonofamily 
+  %\ttfamily
+  %\-\hspace{0.2em}
+  %\href{http://bititanb.github.io/CI-CD-pipeline}{bititanb.github.io/CI-CD-pipeline}
+  \rurl{bititanb.github.io/CI-CD-pipeline}
+  }
+  
+\vspace{2.5ex}
+
 Небольшой демон на \Eng{C++} (1100 строк + 600 строк тестов):\\
+\vspace{0.4ex}
   \rurl{github.com/bititanb/permfixd}
   
 Скрипты:
 \begin{itemize}
   \item \Eng{Python}:\\
+    \vspace{0.2ex}
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
   \item \Eng{Bash}:\\
+    \vspace{0.2ex}
     \rurl{bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
     \rurl{bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
   \item \Eng{JavaScript}:\\
+    \vspace{0.2ex}
     \rurl{github.com/bititanb/google-snippets/blob/master/userscript.js}
   \item больше здесь:\\
+    \vspace{0.2ex}
     \rurl{bitbucket.org/bititanb/linux-utils/src}\\
     \rurl{bitbucket.org/bititanb/}\\
     \rurl{github.com/bititanb?tab=repositories&q=&type=source}
 \end{itemize}
 Небольшое приложение на \Eng{Django}, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}:\\
+\vspace{0.4ex}
   \rurl{github.com/bititanb/taskmngr}
 
 \subsection*{{Основные технологии}}
 \Delimitline
+
 \begin{itemize}
   \item \href{https://github.com/bititanb/ansible-taskmngr}{Ansible}, \href{https://bitbucket.org/bititanb/ivd-fabric/src}{Fabric}, Jenkins, \href{https://github.com/bititanb/ansible-taskmngr/tree/master/roles/taskmngr-kubernetes/templates}{Kubernetes}, KVM/Xen/Docker, git
   \item \Eng{Linux} (отлично), \Eng{Windows}, сети
@@ -190,24 +217,24 @@
   \end{otherlanguage*}
 \end{itemize}
 
-Второстепенное ПО вроде \Eng{Vagrant}, сетевые и системные сервисы не перечисляю.\\
-Ещё некоторое \Eng{(Zabbix, ELK, Chef, PowerShell, \dots)} тоже не включил, т.\,к. хоть и использовал, но недолго.
+\forceindent Второстепенное~ПО вроде~\Eng{Vagrant}, сетевые и системные сервисы не~перечисляю.
+Ещё~некоторое \Eng{(Zabbix,~ELK,~Chef,~PowerShell,~\dots)} тоже не~включил, т.\,к. хоть~и~использовал, но~недолго.
 % Тем не менее, старался поработать хотя бы с одним инструментом из каждой категории (CM, CI, мониторинг и т.\,д.), поэтому быстро разберусь в любом стеке.
 
 \subsection*{{Опыт}}
 \Delimitline
-\begin{frame}
 
-%test test2 \hskip 4cm minus 4cm test3 \hskip 4cm test4 
-\begin{spacing}{0.3}
-\begin{etaremune}
+\begin{spacing}{0.8}
+\begin{etaremune}[
+topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
+]
 \item
     Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
   \hfill 
     \it{10 мес.}
   \hskip 1.5em minus 1em 
     \it{01.17\,--\,11.17}
-  \hskip 1.5em minus 0.5em \-
+  %\hskip 1.5em minus 0.5em \-
   
 \item
     Системный администратор
@@ -217,109 +244,32 @@
     \it{10 мес.}
   \hskip 1.5em minus 1em 
     \it{10.15\,--\,07.16}
-  \hskip 1.5em minus 0.5em \-
+  %\hskip 1.5em minus 0.5em \-
   \newline
   \-\hspace{1em}
-    \it{40-50 машин, \Eng{Linux/Windows} 50/50}
+    40-50 машин, \Eng{Linux/Windows} 50/50
   
 \item
-    Англоязычная техподдержка 
+    Англоязычная техподдержка клиентов
   \hfill 
     в \href{https://ivideon.com}{Ivideon}
   \hskip 2em minus 1.5em 
     \it{18 мес.}
   \hskip 1.5em minus 1em 
     \it{05.14\,--\,10.15} 
-  \hskip 1.5em minus 0.5em \-
+  %\hskip 1.5em minus 0.5em \-
+  \newline
+  \-\hspace{1em}
+    звонки, чат, заявки
 \end{etaremune}
 \end{spacing}
-%% TODO: do without itemize lists (no need for them); try something like \hfill instead of tables???
-\begin{spacing}{0.3}
-\begin{tabular}{p{0.50\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.20\textwidth}}
 
-  \begin{itemize}
-      \item[3.] Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
-  \end{itemize} &
+% somehow this lowers the padding after etaremune lists
+\vspace{0ex}
 
-  &
-  
-  \begin{itemize}
-  \item[] 
-    \it{10 мес.}
-  \end{itemize} &
-
-  \begin{itemize}
-  \item[] 
-    \it{01.17\,--\,11.17}
-  \end{itemize} \\
-  
-  \begin{itemize}
-  \begin{spacing}{0.2}
-    \item[2.] Системный администратор \newline
-  \end{spacing}
-      \-\hspace{0.8em}\it{40-50 машин, \Eng{Linux/Windows} 50/50}
-  \end{itemize} &
-  
-  \begin{itemize}
-  \item[] 
-  \begin{flushright}
-    в \href{https://ivideon.com}{Ivideon}
-  \end{flushright}
-  \end{itemize} &
-
-  \begin{itemize}
-  \item[] 
-    \it{10 мес.}
-  \end{itemize} &
-
-  \begin{itemize}
-  \item[] 
-    \it{10.15\,--\,07.16}
-  \end{itemize} \\
-  
-  \begin{itemize}
-      \item[1.] Англоязычная техподдержка 
-  \end{itemize} &
-  
-  \begin{itemize}
-  \item[] 
-  \begin{flushright}
-    в \href{https://ivideon.com}{Ivideon}
-  \end{flushright}
-  \end{itemize} &
-
-  \begin{itemize}
-  \item[] 
-    \it{18 мес.}
-  \end{itemize} &
-
-  \begin{itemize}
-  \item[] 
-    \it{05.14\,--\,10.15}
-  \end{itemize} \\
-
-\end{tabular}
-\end{spacing}
-
-\end{frame}
-
-% \begin{etaremune}
-%   \item 
-% {\setlength\multicolsep{0pt}%
-% \begin{multicols}{2}
-%   Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
-%   \columnbreak
-%   \begin{flushright}
-%   test1
-%   \end{flushright}
-%   \end{multicols}
-%   }
-%   \item Системный администратор (40-50 машин, \Eng{Linux/Windows} 50/50)
-%   \item Англоязычная техподдержка
-% \end{etaremune}
-
-\subsection*{{Прочее}}
+\subsection*{Прочее}
 \Delimitline
+
 \begin{itemize}
   \item Разговорный английский
   \item Рекомендации с прошлой работы
