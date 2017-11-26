@@ -7,7 +7,6 @@
 \setmainfont{Georgia}
 \setsansfont[FakeStretch=1.05]{Carlito}
 \setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
-%\newfontfamily{\spacedmonofamily}[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
 \usepackage[english,russian]{babel}
 
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1200,stretch=20,shrink=20]{microtype}
@@ -31,10 +30,6 @@
 %% reversed enumerated lists
 \usepackage{etaremune}
 
-%% configure sections
-%\usepackage{sectsty}
-%\usepackage[normalem]{ulem}
-
 % PDF SETUP
 \usepackage{hyperref}
 \hypersetup {
@@ -51,7 +46,6 @@
 % CUSTOM COMMANDS
 \newcommand{\Delimitline}{
   \vspace{-2ex}
-  %{\rule{\linewidth}{0.13ex}}
   \noindent\makebox[\linewidth]{\rule{\DelimitlineLength}{0.12ex}} }
 
 \newcommand\rurl[1]{%
@@ -63,12 +57,6 @@
   \foreignlanguage{english}{#1}%
 }
 
-%% HACK to decrease boldness globally
-%\renewcommand{\textbf}[1]{%
-%    \pdfliteral direct {2 Tr 0.2 w} %the second factor is the boldness 
-%     #1%
-%    \pdfliteral direct {0 Tr 0 w}%
-%}
 \let\bf\textbf
 
 \let\it\textit
@@ -81,11 +69,7 @@
 %\subsectionfont{\rmfamily\mdseries\scshape\large}
 %\subsubsectionfont{\rmfamily\mdseries\normalsize}
 
-%\titlespacing*{\section}
-%{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
 \titlespacing*{\subsection}{1.3em}{2ex}{0ex}
-%\titleformat{\subsection}[display]
-%  {\huge\headingfont}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
 \titleformat{\subsection}{\rmfamily\mdseries\scshape\large}{\thesubsection}{0.7em}{}
 
 \setlength{\parskip}{1ex}
@@ -114,11 +98,6 @@
 
 % spacing between words
 \fontdimen2\font=0.2em
-
-% don't overflow in case line is too long, break it before and justify resulted short
-% line, even if there will be long spaces between words
-%\fossy
-%\sloppy
 
 % maths
 \newlength{\DelimitlineLength}
@@ -149,10 +128,6 @@
 \end{multicols}
 }
 
-%\vspace{-10pt}
-%\textcolor[RGB]{220,220,220}{\rule{\linewidth}{0.2pt}}
-%\vspace{5pt}
-
 \vspace{2ex}
 
 \begin{comment}
@@ -160,10 +135,6 @@
 Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации, и в \Eng{CI/CD}.\\
 Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (\Eng{Linux}, сети и т.\,п.).
 \end{comment}
-
-%\vspace{-4ex}
-
-%\vspace{-4ex}
 
 \subsection*{GitHub}
 \Delimitline
@@ -173,13 +144,7 @@
 \forceindent Главное — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения~в~нём на~локальной~машине
 (с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):
 \vspace{0.4ex}\\
-  {
-  %\spacedmonofamily 
-  %\ttfamily
-  %\-\hspace{0.2em}
-  %\href{http://bititanb.github.io/CI-CD-pipeline}{bititanb.github.io/CI-CD-pipeline}
   \rurl{bititanb.github.io/CI-CD-pipeline}
-  }
 }
   
 \vspace{2.5ex}
@@ -208,6 +173,7 @@
     \rurl{bitbucket.org/bititanb/}\\
     \rurl{github.com/bititanb?tab=repositories&q=&type=source}
 \end{itemize}
+
 Небольшое приложение на \Eng{Django}, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}:
 \vspace{0.4ex}\\
   \rurl{github.com/bititanb/taskmngr}
@@ -232,7 +198,8 @@
 
 \begin{spacing}{0.8}
 \begin{etaremune}[
-topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
+  topsep=1ex,itemsep=1.5ex,partopsep=0ex,
+  parsep=0ex,rightmargin=2em,leftmargin=2em
 ]
 \item
     Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
@@ -240,7 +207,6 @@ topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
     \it{10 мес.}
   \hskip 1.5em minus 1em 
     \it{01.17\,--\,11.17}
-  %\hskip 1.5em minus 0.5em \-
   
 \item
     Системный администратор
@@ -250,7 +216,6 @@ topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
     \it{10 мес.}
   \hskip 1.5em minus 1em 
     \it{10.15\,--\,07.16}
-  %\hskip 1.5em minus 0.5em \-
   \newline
   \-\hspace{1em}
     \it{40-50 машин, \Eng{Linux/Windows} 50/50}
@@ -263,7 +228,6 @@ topsep=1ex,itemsep=1.5ex,partopsep=0ex,parsep=0ex,rightmargin=2em,leftmargin=2em
     \it{18 мес.}
   \hskip 1.5em minus 1em 
     \it{05.14\,--\,10.15} 
-  %\hskip 1.5em minus 0.5em \-
   \newline
   \-\hspace{1em}
     \it{звонки, чат, заявки}
