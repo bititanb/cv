@@ -1,6 +1,6 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{geometry}
-\geometry{a4paper, left=20mm, right=20mm, top=15mm, bottom=20mm}
+\geometry{a4paper, left=20mm, right=20mm, top=10mm, bottom=10mm}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Renderer=Basic,Ligatures={TeX}, Numbers=Lining}
@@ -24,11 +24,11 @@
 
 \usepackage{setspace}
 %% reversed enumerated lists
-%\usepackage{etaremune}
+\usepackage{etaremune}
 
-% configure sections
-\usepackage{sectsty}
-\usepackage[normalem]{ulem}
+%% configure sections
+%\usepackage{sectsty}
+%\usepackage[normalem]{ulem}
 
 % PDF SETUP
 \usepackage{hyperref}
@@ -46,7 +46,7 @@
 
 % CUSTOM COMMANDS
 \newcommand{\Delimitline}{
-  %\vspace{-5ex}
+  \vspace{-2ex}
   {\rule{\linewidth}{0.13ex}}
 }
 
@@ -71,12 +71,16 @@
 %% FORMATTING
 
 % \sectionfont{\rmfamily\mdseries}
-\subsectionfont{\rmfamily\mdseries\scshape\large}
+%\subsectionfont{\rmfamily\mdseries\scshape\large}
 %\subsubsectionfont{\rmfamily\mdseries\normalsize}
 
 %\titlespacing*{\section}
 %{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
-\titlespacing*{\subsection}{20pt}{20pt}{20pt}
+\titlespacing*{\subsection}{0.7em}{1.3ex}{0ex}
+%\titleformat{\subsection}[display]
+%  {\huge\headingfont}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\subsection}{\rmfamily\mdseries\scshape\large}{\thesubsection}{0.7em}{}
+
 
 \setlength{\parskip}{0.8ex}
 % Do not indent paragraphs
@@ -140,15 +144,14 @@
 %\vspace{-4ex}
 
 \subsection*{Главное}
-%\Delimitline
+\Delimitline
 Демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения в нём на локальной машине 
 %% HACK: shrink big spaces between words caused by boldness hack
 %{\fontdimen2\font=1.5pt
 (с \Eng{Vagrant, Ansible, Jenkins, Kubernetes, Zabbix, ELK}):\\
 %\par
 %}
-\rurl{bititanb.github.io/CI-CD-pipeline}\\
-\Delimitline
+\rurl{bititanb.github.io/CI-CD-pipeline}
 
 %\vspace{-4ex}
 
@@ -188,14 +191,49 @@
 \end{itemize}
 
 Второстепенное ПО вроде \Eng{Vagrant}, сетевые и системные сервисы не перечисляю.\\
-Ещё некоторое ПО \Eng{(Zabbix, ELK, Chef, PowerShell, \dots)} тоже не включил, т.\,к. хоть и использовал, но недолго.
+Ещё некоторое \Eng{(Zabbix, ELK, Chef, PowerShell, \dots)} тоже не включил, т.\,к. хоть и использовал, но недолго.
 % Тем не менее, старался поработать хотя бы с одним инструментом из каждой категории (CM, CI, мониторинг и т.\,д.), поэтому быстро разберусь в любом стеке.
 
 \subsection*{{Опыт}}
 \Delimitline
 \begin{frame}
 
-% TODO: do without itemize lists (no need for them)
+%test test2 \hskip 4cm minus 4cm test3 \hskip 4cm test4 
+\begin{spacing}{0.3}
+\begin{etaremune}
+\item
+    Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
+  \hfill 
+    \it{10 мес.}
+  \hskip 1.5em minus 1em 
+    \it{01.17\,--\,11.17}
+  \hskip 1.5em minus 0.5em \-
+  
+\item
+    Системный администратор
+  \hfill 
+    в \href{https://ivideon.com}{Ivideon}
+  \hskip 2em minus 1.5em 
+    \it{10 мес.}
+  \hskip 1.5em minus 1em 
+    \it{10.15\,--\,07.16}
+  \hskip 1.5em minus 0.5em \-
+  \newline
+  \-\hspace{1em}
+    \it{40-50 машин, \Eng{Linux/Windows} 50/50}
+  
+\item
+    Англоязычная техподдержка 
+  \hfill 
+    в \href{https://ivideon.com}{Ivideon}
+  \hskip 2em minus 1.5em 
+    \it{18 мес.}
+  \hskip 1.5em minus 1em 
+    \it{05.14\,--\,10.15} 
+  \hskip 1.5em minus 0.5em \-
+\end{etaremune}
+\end{spacing}
+%% TODO: do without itemize lists (no need for them); try something like \hfill instead of tables???
 \begin{spacing}{0.3}
 \begin{tabular}{p{0.50\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.20\textwidth}}
 
