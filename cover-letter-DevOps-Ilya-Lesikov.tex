@@ -1,0 +1,104 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{geometry}
+\geometry{a4paper, left=30mm, right=30mm, top=30mm, bottom=30mm}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Basic,Ligatures={TeX}, Numbers=Lining}
+\setmainfont{Georgia}
+\setsansfont[]{Carlito}
+\setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
+\usepackage[english,russian]{babel}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,factor=1200,stretch=20,shrink=20]{microtype}
+
+% disable hyphenation
+\usepackage[]{hyphenat}
+% arithmetic operations in latex
+\usepackage{calc}
+% section titles configuration
+\usepackage{titlesec}
+% colorize text (advanced)
+\usepackage{xcolor}
+% multiline comments
+\usepackage{verbatim}
+
+\usepackage{setspace}
+
+% PDF SETUP
+\usepackage{hyperref}
+\hypersetup {
+  pdfauthor={Илья Лесиков},
+  pdfsubject={Сопровод. письмо (Devops)},
+  pdftitle={Сопровод. письмо (DevOps) — Илья Лесиков},
+  colorlinks, breaklinks,
+  filecolor=black,
+  urlcolor=[RGB]{0,0,208},
+  linkcolor=[RGB]{0,0,208},
+  citecolor=[RGB]{0,0,208},
+}
+
+% CUSTOM COMMANDS
+\newcommand{\Delimitline}{
+  \vspace{-1ex}
+  \noindent\makebox[\linewidth]{\rule{\DelimitlineLength}{0.12ex}} 
+  \vspace{3ex}
+}
+
+\newcommand\rurl[1]{%
+  \-\hspace{0.5em}
+  \href{http://#1}{\nolinkurl{#1}}%
+}
+
+\newcommand\Eng[1]{%
+  \foreignlanguage{english}{#1}%
+}
+
+\let\bf\textbf
+
+\let\it\textit
+
+\newcommand{\forceindent}{\leavevmode{\parindent=1.5em\indent}}
+
+%% FORMATTING
+
+\setlength{\parskip}{2ex}
+% Do not indent paragraphs
+\setlength{\parindent}{0ex}
+% suppress page numbers
+\pagenumbering{gobble}
+
+% space between lines
+\renewcommand{\baselinestretch}{1.1}
+
+%% DOCUMENT
+\begin{document}
+
+% default font family
+\sffamily
+
+% spacing between words
+\fontdimen2\font=0.2em
+
+% maths
+\newlength{\DelimitlineLength}
+\setlength{\DelimitlineLength}{\textwidth+1em}
+
+%% COLORS
+\pagecolor[RGB]{245,245,245}
+
+{\rmfamily {\Large Илья\,Лесиков, DevOps}}
+
+\Delimitline
+
+\forceindent У меня нет образования (неоконченный колледж электроники) и сомнительный стаж.
+Но, за последний год, самообучаясь дома, я получил хороший опыт и в общей автоматизации, и в \Eng{CI/CD}. 
+Получил некоторый опыт и в кодинге, как и солидный общий технический бэкграунд.
+
+\forceindent Как подтверждение навыков — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения с ним
+на локальной машине (с \Eng{Kubernetes, Ansible, Jenkins, ELK, Zabbix, Vagrant/Packer}), которое я делал в течение этого года:
+\vspace{0.8ex}\\
+  \rurl{bititanb.github.io/CI-CD-pipeline}
+
+Больше ссылок на GitHub и информации обо мне в резюме.
+
+\end{document}
