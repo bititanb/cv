@@ -1,18 +1,28 @@
 \documentclass[11pt, a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES CONFIG
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{geometry}
-\geometry{a4paper, left=25mm, right=25mm, top=10mm, bottom=5mm}
+\geometry{a4paper, left=15mm, right=15mm, top=15mm, bottom=30mm}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Renderer=Basic,Ligatures={TeX}, Numbers=Lining}
 \setmainfont{Georgia}
+\newfontfamily{\rmspacedfamily}[LetterSpace=4]{Georgia}
 \setsansfont[FakeStretch=1.05]{Carlito}
 \setmonofont[Scale=0.95, LetterSpace=-1.5, FakeStretch=0.90]{SauceCodePro Nerd Font}
-\usepackage[english,russian]{babel}
 
+\usepackage[main=english,russian]{babel}
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1200,stretch=20,shrink=20]{microtype}
 
+% icons
+\usepackage{fontawesome}
+% for strikethrough
+\usepackage{ulem}
 % disable hyphenation
-\usepackage[none]{hyphenat}
+% \usepackage[none]{hyphenat}
 % arithmetic operations in latex
 \usepackage{calc}
 % section titles configuration
@@ -25,17 +35,16 @@
 \usepackage{verbatim}
 % configure top/bottom padding for itemize lists
 \usepackage{enumitem}
-
 \usepackage{setspace}
 %% reversed enumerated lists
 \usepackage{etaremune}
 
-% PDF SETUP
+% PDF setup
 \usepackage{hyperref}
 \hypersetup {
-  pdfauthor={Илья Лесиков},
-  pdfsubject={Резюме (Devops)},
-  pdftitle={Резюме (DevOps) — Илья Лесиков},
+  pdfauthor={Ilya Lesikov},
+  pdfsubject={Resume (DevOps/SRE)},
+  pdftitle={Resume (DevOps/SRE) — Ilya Lesikov},
   colorlinks, breaklinks,
   filecolor=black,
   urlcolor=[RGB]{0,0,208},
@@ -43,7 +52,10 @@
   citecolor=[RGB]{0,0,208},
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CUSTOM COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\Delimitline}{
   \vspace{-2ex}
   \noindent\makebox[\linewidth]{\rule{\DelimitlineLength}{0.12ex}} }
@@ -53,30 +65,33 @@
   \href{http://#1}{\nolinkurl{#1}}%
 }
 
-\newcommand\Eng[1]{%
-  \foreignlanguage{english}{#1}%
-}
+% \newcommand\Ru[1]{%
+%   \foreignlanguage{russian}{#1}%
+% }
 
-\let\bf\textbf
+% \let\bf\textbf
 
-\let\it\textit
+% \let\it\textit
 
-\newcommand{\forceindent}{\leavevmode{\parindent=1.5em\indent}}
+\newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
 
-%% FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \sectionfont{\rmfamily\mdseries}
 %\subsectionfont{\rmfamily\mdseries\scshape\large}
 %\subsubsectionfont{\rmfamily\mdseries\normalsize}
 
 \titlespacing*{\subsection}{1.3em}{2ex}{0ex}
-\titleformat{\subsection}{\rmfamily\mdseries\scshape\large}{\thesubsection}{0.7em}{}
+\titleformat{\subsection}{\rmspacedfamily\mdseries\Large}{\thesubsection}{0.7em}{}
 
 \setlength{\parskip}{1ex}
 % Do not indent paragraphs
 \setlength{\parindent}{0ex}
 % suppress page numbers
-\pagenumbering{gobble}
+% \pagenumbering{gobble}
+ 
 
 % border between tabular cells
 \setlength{\arrayrulewidth}{0pt}
@@ -90,7 +105,21 @@
 \renewcommand\labelitemi{\textbullet}
 %\renewcommand\labelitemii{\footnotesize\raisebox{0.05ex}{\textbullet}}
 
-%% DOCUMENT
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+ 
+\pagestyle{fancy}
+% remove header rule
+\renewcommand{\headrulewidth}{0pt}
+% remove header contents
+\fancyhead{}
+% page numbering format
+\cfoot{\vspace{1ex}Page \thepage\ of \pageref*{LastPage}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
 % default font family
@@ -103,25 +132,35 @@
 \newlength{\DelimitlineLength}
 \setlength{\DelimitlineLength}{\textwidth+1em}
 
-%% COLORS
+% colors
 \pagecolor[RGB]{245,245,245}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEAD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\setlength\multicolsep{0pt}%
 \begin{multicols}{2}
-
-\begin{spacing}{1.5}
+  \begin{spacing}{1.6}
   \rmfamily
-  {\LARGE Илья\,Лесиков}\\
-  {\Large\Eng{DevOps}}\hspace{1cm}{\large 25\,лет}
+  \raggedright
+  {\huge Ilya\,Lesikov}\vspace{1ex}\\
+  {\Large DevOps Engineer/SRE\hspace{0.35em}(Mid-level)}\\
+  {\Large Russia, Ryazan (UTC+3)}\\
+  {\Large 27 years old}
 \end{spacing}
 
 \columnbreak
 
 \begin{flushright}
-  \begin{spacing}{1.5}
+  \begin{spacing}{1.3}
     \rmfamily
-    {\large\href{mailto:bititanc@gmail.com}{\Eng{bititanc@gmail.com}}}\\
-    {\fontsize{1.4em}{0}\selectfont 8\,(930)\,88-66-248} \normalsize\\
+    \textit{Updated: 28/01/2020}\\[0.5ex]
+    \large{
+      \faEnvelope \href{mailto:hire@lesikov.com}{\ hire@lesikov.com}\\
+      \faInternetExplorer \href{https://ilya-lesikov.com}{\ ilya-lesikov.com}\\
+      \faLinkedin \href{https://www.linkedin.com/in/ilya-lesikov}{\ ilya-lesikov}\\
+      \faGithubAlt \href{https://github.com/ilya-lesikov}{\ ilya-lesikov}}
   \end{spacing}
 \end{flushright}
 
@@ -130,126 +169,132 @@
 
 \vspace{2ex}
 
-\begin{comment}
-У меня нет образования (неоконченный колледж электроники) и сомнительный стаж (10 месяцев сисадмином).\\
-Но, самообучаясь, за последние пару лет я получил достаточный опыт и в общей автоматизации, и в \Eng{CI/CD}.\\
-Получил некоторый опыт и в кодинге, как и хороший общий технический бэкграунд (\Eng{Linux}, сети и т.\,п.).
-\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABOUT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{About}
+\Delimitline
+
+\forceindent I'm an experienced Automation Engineer/DevOps/SRE, who loves development, but still has a strong Linux SysAdmin background.
+
+\forceindent I solve problems and make things easy (not simple). No reinventing the wheel. No overcomplicating. I know the balance between doing it right and quickly. Generally ``doing it right > quickly" though. My code is clean, maintainable and extensible, autotested and documented.
+
+\forceindent I'm \sout{a nice guy} a good man. Easy to work with. If you care about me I care about you. Strong, balanced, informed. Funny (lie). I never lie.
+
+\forceindent I look for: good, strong people, professional/career advancement, trust and no micromanagement, balance and common sense.
+
+\forceindent I speak English (it's Advanced/C1 at least) and Russian (native).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GITHUB
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{GitHub}
 \Delimitline
 
-{
-\raggedright
-\forceindent Главное — демонстрация полностью автоматизированного развертывания \Eng{CI/CD} и приложения с ним на~локальной~машине
-(с \Eng{Kubernetes, Ansible, Jenkins, ELK, Zabbix, Vagrant}):
-\vspace{0.4ex}\\
-  \rurl{bititanb.github.io/CI-CD-pipeline}
-}
-  
-\vspace{2.5ex}
+\forceindent For the purposes of learning and demonstration of what I can do I recently did a demo of a pretty complete, fully-featured CI/CD and cloud automation for microservices. Done with Terraform, GCP, GKE/Kubernetes, GCB, ArgoCD, Stackdriver:\vspace{0.2em}\\
+\rurl{github.com/ilya-lesikov/gke-demo}
 
-Небольшой демон на \Eng{C++} (1100 строк + 600 строк тестов):
-\vspace{0.4ex}\\
-  \rurl{github.com/bititanb/permfixd}
-  
-Скрипты:
-\begin{itemize}
-  \item \Eng{Python}:
-    \vspace{0.2em}\\
-    \rurl{bitbucket.org/bititanb/linux-utils/src/master/xenserver-snapshot-revert.py}\\
-    \rurl{bitbucket.org/bititanb/linux-utils/src/master/rpmbuild.py}\\
-    \rurl{bitbucket.org/bititanb/linux-utils/src/master/pulseaudio-move-sink.py}
-  \item \Eng{Bash}:
-    \vspace{0.2ex}\\
-    \rurl{bitbucket.org/bititanb/linux-utils/src/master/alarm.sh}\\
-    \rurl{bitbucket.org/bititanb/ivd-update-mango/src/master/update-mango.sh}
-  \item \Eng{JavaScript}:
-    \vspace{0.2ex}\\
-    \rurl{github.com/bititanb/google-snippets/blob/master/userscript.js}
-  \item больше здесь:
-    \vspace{0.2ex}\\
-    \rurl{bitbucket.org/bititanb/linux-utils/src}\\
-    \rurl{bitbucket.org/bititanb/}\\
-    \rurl{github.com/bititanb?tab=repositories&q=&type=source}
-\end{itemize}
+Some Ansible/Docker-based personal automation with E2E and role-level testing:\vspace{0.2em}\\
+\rurl{github.com/ilya-lesikov/ansible-personal-infra}
 
-Небольшое приложение на \Eng{Django}, использовалось для \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}:
-\vspace{0.4ex}\\
-  \rurl{github.com/bititanb/taskmngr}
+Also, things I did when I was looking for a job as a junior in 2017 (not an indication of my current qualifications):\vspace{0.2em}\\
+\rurl{github.com/ilya-lesikov/permfixd}\\
+\rurl{github.com/ilya-lesikov/CI-CD-pipeline}\\
+\rurl{github.com/ilya-lesikov/taskmngr}
 
-\subsection*{{Основные технологии}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Experience}
 \Delimitline
 
-\begin{itemize}
-  \item \href{https://github.com/bititanb/ansible-taskmngr}{Ansible}, \href{https://bitbucket.org/bititanb/ivd-fabric/src}{Fabric}, Jenkins, \href{https://github.com/bititanb/ansible-taskmngr/tree/master/roles/taskmngr-kubernetes/templates}{Kubernetes}, KVM/Xen/Docker, git
-  \item \Eng{Linux} (отлично), \Eng{Windows}, сети
-  \item \Eng{Bash, Python}, чуть \Eng{C++/C} и веб-разработки
-  \begin{otherlanguage*}{english}
-  \end{otherlanguage*}
-\end{itemize}
-
-\forceindent Второстепенное~ПО вроде~\Eng{Vagrant}, сетевые и системные сервисы не~перечисляю.
-Ещё некоторое \Eng{(Zabbix,~ELK,~Chef,~PowerShell,~\dots)} тоже не~включил, т.\,к. хоть и использовал, но недолго.
-% Тем не менее, старался поработать хотя бы с одним инструментом из каждой категории (CM, CI, мониторинг и т.\,д.), поэтому быстро разберусь в любом стеке.
-
-\subsection*{{Опыт}}
-\Delimitline
-
-\begin{spacing}{0.8}
 \begin{etaremune}[
   topsep=1ex,itemsep=1.5ex,partopsep=0ex,
-  parsep=0ex,rightmargin=2em,leftmargin=2em
+  parsep=0ex,rightmargin=1em,leftmargin=2em
 ]
 \item
-    Самообучение, работа над \href{https://github.com/bititanb/CI-CD-pipeline}{\Eng{CI/CD} демо}
-  \hfill 
-    \it{10 мес.}
-  \hskip 1.5em minus 1em 
-    \it{01.17\,--\,11.17}
-  
-\item
-    Системный администратор
-  \hfill 
-    в \href{https://ivideon.com}{Ivideon}
-  \hskip 2em minus 1.5em 
-    \it{10 мес.}
-  \hskip 1.5em minus 1em 
-    \it{10.15\,--\,07.16}
+    \emph{Self-education}
+  \hfill
+    \textit{6 mos.}
+  \hskip 1.5em minus 1em
+    \textit{07/19\,—\,01/20}
+  \vspace{1.5ex}
   \newline
-  \-\hspace{1em}
-    \it{40-50 машин, \Eng{Linux/Windows} 50/50}
-  
+    \forceindent I improved my automation, security and networking expertise through books and practice. Made my second, more advanced cloud automation and CI/CD demo (\href{https://github.com/ilya-lesikov/gke-demo}{github.com/ilya-lesikov/gke-demo})
+
 \item
-    Англоязычная техподдержка клиентов
-  \hfill 
-    в \href{https://ivideon.com}{Ivideon}
-  \hskip 2em minus 1.5em 
-    \it{18 мес.}
-  \hskip 1.5em minus 1em 
-    \it{05.14\,--\,10.15} 
+    \emph{SRE/DevOps Engineer}
+  \hfill
+    in Smart Transport
+  \hskip 2em minus 1.5em
+    \textit{12 mos.}
+  \hskip 1.5em minus 1em
+    \textit{12/17\,—\,12/18}
+  \vspace{1.5ex}
   \newline
-  \-\hspace{1em}
-    \it{звонки, чат, заявки}
+    \forceindent I did a fully-featured cloud automation and CI/CD done with Terraform, Jenkins, Chef, Docker. It was developed in parallel with the existing (and broken in many ways) infrastructure, so the actual migration of the applications still had to be done. Migrated from broken Zabbix to Prometheus, eliminating a lot of the technical debt. 50\% of my work was maintaining and operating the existing infrastructure.\\[0.7ex]
+    \forceindent Why left: my expertise improved significantly, but my salary and working conditions did not
+
+\newpage
+
+\item
+    \emph{Self-education}
+  \hfill
+    \textit{10 mos.}
+  \hskip 1.5em minus 1em
+    \textit{01/17\,—\,11/17}
+  \vspace{1.5ex}
+  \newline
+    \forceindent Decided to learn how to develop software and do CI/CD the proper way. Ended up with my first CI/CD demo (Jenkins, Ansible, K8S), command-line app in C++ and web app in Python/Django (links in the end of the ``GitHub" section)
+
+\item
+    \emph{System Administrator (Linux/Windows)}
+  \hfill
+    in \href{https://ivideon.com}{Ivideon}
+  \hskip 2em minus 1.5em
+    \textit{10 mos.}
+  \hskip 1.5em minus 1em
+    \textit{10/15\,—\,07/16}
+  \vspace{1.5ex}
+  \newline
+    \forceindent My first real-world experience with automation. Partially automated machines provisioning and maintenance with Chef, Fabric and some ad-hoc Bash/PS scripting. It was ugly :)
+    % \textit{40-50 машин, Linux/Windows 50/50}
+
+\item
+    \emph{Technical Support (English/Russian)}
+  \hfill
+    in \href{https://ivideon.com}{Ivideon}
+  \hskip 2em minus 1.5em
+    \textit{18 mos.}
+  \hskip 1.5em minus 1em
+    \textit{05/14\,—\,10/15}
 \end{etaremune}
-\end{spacing}
 
 % somehow this lowers the padding after etaremune lists
 \vspace{0ex}
 
-\subsection*{Прочее}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WORKED WITH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Worked with}
 \Delimitline
 
+Not everything is in here, only the most important things:
 \begin{itemize}
-  \item Разговорный английский
-  \item Рекомендации с прошлой работы
-  \item Военный билет
-\end{itemize}
+  \item Cloud Platforms: GCP
+  \item Cloud Automation: Terraform
+  \item Container Orchestration: Kubernetes
+  \item CI/CD: Jenkins, GCB, ArgoCD
+  \item CMS: Ansible, Chef
+  \item Monitoring: Prometheus, Zabbix
+  \item Languages: mostly Bash and Python, but I worked some with a dozen different languages over time
+\end{itemize}\vspace{2ex}
 
-\hfill
-  \it{Актуально:
-\hskip 0.3em 
-  03.12.17}
-\hskip 0.3em \-
+\textit{Some useless keywords for robots (obviously I worked with this): Linux, Docker, Git, GKE, KVM, Ruby, Groovy}
+
 
 \end{document}
